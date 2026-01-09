@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Matrix Tool</h2>
+
+<p><strong>Input format:</strong></p>
+<pre>
+Use spaces to separate numbers.
+Use a new line to represent a new row.
+
+Example:
+1 2 3
+4 5 6
+7 8 9
+</pre>
+
+<form method="post">
+    <p>Operation:</p>
+    <select name="operation">
+        <option value="multiply">Matrix Multiplication</option>
+        <option value="transpose">Transpose (Matrix A)</option>
+        <option value="determinant">Determinant (Matrix A)</option>
+    </select>
+
+
+    <div class="matrix-input">
+        <div>
+            <p>Matrix A:</p>
+            <textarea name="matrixA" rows="5" cols="30">{{ matrixA_text }}</textarea>
+        </div>
+
+        <div>
+            <p>Matrix B (for multiplication):</p>
+            <textarea name="matrixB" rows="5" cols="30">{{ matrixB_text }}</textarea>
+        </div>
+    </div>
+
+    <br>
+    <button type="submit">Compute</button>
+</form>
+
+{% if propA %}
+<h3>Matrix A Properties</h3>
+<ul>
+    <li>Size: {{ propA.rows }} × {{ propA.cols }}</li>
+    <li>Square Matrix: {{ "Yes" if propA.is_square else "No" }}</li>
+</ul>
+{% endif %}
+
+{% if propB %}
+<h3>Matrix B Properties</h3>
+<ul>
+    <li>Size: {{ propB.rows }} × {{ propB.cols }}</li>
+    <li>Square Matrix: {{ "Yes" if propB.is_square else "No" }}</li>
+</ul>
+{% endif %}
+
+{% if error %}
+<p class="error">{{ error }}</p>
+{% endif %}
+
+{% if result %}
+<h3>Result</h3>
+
+{% if result is string %}
+<p><strong>{{ result }}</strong></p>
+{% else %}
+<table class="matrix-table">
+    {% for row in result %}
+    <tr>
+        {% for value in row %}
+        <td>{{ value }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% endif %}
+
+{% endblock %}

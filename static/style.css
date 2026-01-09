@@ -1,0 +1,88 @@
+body {
+    background-color: #121212;   /* 深灰黑，不是純黑 */
+    color: #e0e0e0;              /* 主要文字顏色 */
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+
+nav a {
+    color: #ffffff;
+    margin-right: 10px;
+    text-decoration: none;
+    padding: 30px 20px;
+    line-height: 30px;
+}
+
+nav a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.matrix-input {
+    display: flex;
+    gap: 30px;
+}
+
+textarea {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #555;
+    padding: 6px;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #888;
+}
+
+button {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #666;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+.matrix-table {
+    border-collapse: collapse;
+    margin: 10px auto;
+}
+
+.matrix-table td {
+    border: 1px solid #555;
+    padding: 6px 10px;
+    text-align: center;
+}
+
+.error {
+    color: #ff6b6b;
+}
+
+pre {
+    background-color: #575454;
+    padding: 10px;
+    border-left: 4px solid #999;
+}
+
+/*Container: 內容置中*/
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+
+    background-color: #1e1e1e;   /* 比 body 稍亮 */
+    border-radius: 8px;
+}
+
+
+/*Make matrix table be in middle*/
+.matrix-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
